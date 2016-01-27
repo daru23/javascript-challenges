@@ -1,12 +1,27 @@
+/* Created by Daniela Ruiz daru015@gmail.com */
+
+var readline = require('readline');
+var rl = readline.createInterface(process.stdin, process.stdout);
+
 /**
  *@method FirstReverse
  *@param str String
  */
-function FirstReverse(str) { 
-
+function firstReverse(str) {
   return str.split("").reverse().join("");
-         
 }
-   
-//print result
-console.log(FirstReverse('test text'));                            
+
+//prompt
+rl.setPrompt('PROMPT> ');
+rl.prompt();
+
+rl.on('line', function (line) {
+  console.log('Reverse: ' + firstReverse(line))
+});
+
+rl.prompt();
+
+rl.on('close', function () {
+  console.log('Bye Bye!');
+  process.exit(0);
+});
